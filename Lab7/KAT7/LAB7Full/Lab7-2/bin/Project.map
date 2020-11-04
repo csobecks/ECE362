@@ -1,0 +1,156 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\knasci\Documents\Lab7-2\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            171     R     0xC000     0xC0AA   ROM_C000
+.stack                           256   R/W      0x400      0x4FF   RAM
+My_Constants                      36     R     0xC0AB     0xC0CE   ROM_C000
+My_Variables                       6   R/W      0x500      0x505   RAM
+.vectSeg0_vect                     2     R     0xFFF0     0xFFF1   .vectSeg0
+.vectSeg1_vect                     2     R     0xFFFE     0xFFFF   .vectSeg1
+
+Summary of section sizes per section type:
+READ_ONLY (R):          D3 (dec:      211)
+READ_WRITE (R/W):      106 (dec:      262)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFF0        0xC087   RTI_ISR
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      36      54       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     main                                      C000       0       0       0   .init       
+     reset                                     C036       3       3       0   .init       
+     loop1                                     C039      20      32       0   .init       
+     Looking                                   C059       3       3       0   .init       
+     loop                                      C05C       F      15       0   .init       
+     nope                                      C06B       3       3       0   .init       
+     Go                                        C06E      19      25       0   .init       
+     RTI_ISR                                   C087      16      22       0   .init       
+     on                                        C09D       6       6       0   .init       
+     off                                       C0A3       4       4       0   .init       
+     END_RTI                                   C0A7       4       4       0   .init       
+- VARIABLES:
+     temp                                       500       1       1       0   My_Variables
+     ton                                        501       1       1       4   My_Variables
+     toff                                       502       1       1       1   My_Variables
+     toffmem                                    503       1       1       1   My_Variables
+     tonmem                                     504       1       1       1   My_Variables
+     counter                                    505       1       1       4   My_Variables
+     Scans                                     C0AB       4       4       1   My_Constants
+     LTable                                    C0AF      10      16       1   My_Constants
+     InTable                                   C0BF      10      16       1   My_Constants
+- LABELS:
+     __SEG_END_SSTACK                           500       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   6    171     36
+  other                                      256      4      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Entry reset loop1 Looking loop nope Go RTI_ISR on off END_RTI 
+SECTION: "My_Constants"
+  Scans LTable InTable 
+SECTION: "My_Variables"
+  temp ton toff toffmem tonmem counter 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     temp                                       500       1       1       0   My_Variables
+     ton                                        501       1       1       4   My_Variables
+     toff                                       502       1       1       1   My_Variables
+     toffmem                                    503       1       1       1   My_Variables
+     tonmem                                     504       1       1       1   My_Variables
+     counter                                    505       1       1       4   My_Variables
+     main                                      C000       0       0       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     Entry                                     C000      36      54       0   .init       
+     reset                                     C036       3       3       0   .init       
+     loop1                                     C039      20      32       0   .init       
+     Looking                                   C059       3       3       0   .init       
+     loop                                      C05C       F      15       0   .init       
+     nope                                      C06B       3       3       0   .init       
+     Go                                        C06E      19      25       0   .init       
+     RTI_ISR                                   C087      16      22       0   .init       
+     on                                        C09D       6       6       0   .init       
+     off                                       C0A3       4       4       0   .init       
+     END_RTI                                   C0A7       4       4       0   .init       
+     Scans                                     C0AB       4       4       1   My_Constants
+     LTable                                    C0AF      10      16       1   My_Constants
+     InTable                                   C0BF      10      16       1   My_Constants
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK counter ton 
+loop1                     USES Scans 
+loop                      USES LTable 
+Go                        USES InTable ton tonmem toff toffmem 
+RTI_ISR                   USES counter ton 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+      
+ RTI_ISR             
+   
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 4
+Total size of all blocks to be downloaded: 211
+

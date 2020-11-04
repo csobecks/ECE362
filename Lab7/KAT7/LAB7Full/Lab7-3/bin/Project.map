@@ -1,0 +1,131 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\knasci\Documents\Lab7-3\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+WALL_CLOCK.asm.o                        Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             52     R     0xC000     0xC033   ROM_C000
+.stack                           256   R/W      0x400      0x4FF   RAM
+My_Variables                       3   R/W      0x500      0x502   RAM
+My_Code                           37     R     0xC034     0xC058   ROM_C000
+.vectSeg0_vect                     2     R     0xFFF0     0xFFF1   .vectSeg0
+.vectSeg1_vect                     2     R     0xFFFE     0xFFFF   .vectSeg1
+
+Summary of section sizes per section type:
+READ_ONLY (R):          5D (dec:       93)
+READ_WRITE (R/W):      103 (dec:      259)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFF0        0xC034   WALL_CLOCK
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      1D      29       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     main                                      C000       0       0       0   .init       
+     display                                   C01D      17      23       0   .init       
+- VARIABLES:
+     Second                                     500       1       1       5   My_Variables
+     Count                                      501       2       2       4   My_Variables
+- LABELS:
+     __SEG_END_SSTACK                           500       0       0       1               
+MODULE:                 -- WALL_CLOCK.asm.o --
+- PROCEDURES:
+     WALL_CLOCK                                C034      21      33       0   My_Code     
+     exitISR                                   C055       4       4       0   My_Code     
+- VARIABLES:
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   3     52      0
+  WALL_CLOCK.asm.o                             0     37      0
+  other                                      256      4      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Entry display 
+SECTION: "My_Variables"
+  Second Count 
+SECTION: "My_Code"
+  WALL_CLOCK exitISR 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     Second                                     500       1       1       5   My_Variables
+     Count                                      501       2       2       4   My_Variables
+     main                                      C000       0       0       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     Entry                                     C000      1D      29       0   .init       
+     display                                   C01D      17      23       0   .init       
+     WALL_CLOCK                                C034      21      33       0   My_Code     
+     exitISR                                   C055       4       4       0   My_Code     
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK Count Second 
+display                   USES Second 
+WALL_CLOCK                USES Count Second 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+      
+ WALL_CLOCK          
+   
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 93
+

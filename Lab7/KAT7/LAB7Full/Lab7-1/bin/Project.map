@@ -1,0 +1,173 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\knasci\Documents\Lab7-1\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            200     R     0xC000     0xC0C7   ROM_C000
+.stack                           256   R/W      0x400      0x4FF   RAM
+My_Constants                      36     R     0xC0C8     0xC0EB   ROM_C000
+My_Variables                       5   R/W      0x500      0x504   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          EE (dec:      238)
+READ_WRITE (R/W):      105 (dec:      261)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      20      32       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     main                                      C000       0       0       0   .init       
+     reset                                     C020       3       3       0   .init       
+     loop1                                     C023      21      33       0   .init       
+     delay                                     C044       7       7       0   .init       
+     Looking                                   C04B       3       3       1   .init       
+     loop                                      C04E       F      15       0   .init       
+     nope                                      C05D       3       3       0   .init       
+     Go                                        C060      1A      26       0   .init       
+     check1                                    C07A       3       3       0   .init       
+     reel                                      C07D       6       6       0   .init       
+     done                                      C083      11      17       0   .init       
+     comp                                      C094       6       6       0   .init       
+     sets                                      C09A       6       6       0   .init       
+     back2                                     C0A0       9       9       0   .init       
+     clears                                    C0A9       9       9       0   .init       
+     back                                      C0B2       6       6       0   .init       
+     delay2                                    C0B8       3       3       0   .init       
+     actual                                    C0BB       5       5       0   .init       
+     delay3                                    C0C0       3       3       0   .init       
+     reall                                     C0C3       5       5       0   .init       
+- VARIABLES:
+     temp                                       500       1       1       0   My_Variables
+     ton                                        501       1       1       6   My_Variables
+     toff                                       502       1       1       6   My_Variables
+     toffmem                                    503       1       1       2   My_Variables
+     tonmem                                     504       1       1       2   My_Variables
+     Scans                                     C0C8       4       4       1   My_Constants
+     LTable                                    C0CC      10      16       1   My_Constants
+     InTable                                   C0DC      10      16       1   My_Constants
+- LABELS:
+     __SEG_END_SSTACK                           500       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   5    200     36
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup Entry reset loop1 delay Looking loop nope Go check1 reel done 
+  comp sets back2 clears back delay2 actual delay3 reall 
+SECTION: "My_Constants"
+  Scans LTable InTable 
+SECTION: "My_Variables"
+  temp ton toff toffmem tonmem 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     temp                                       500       1       1       0   My_Variables
+     ton                                        501       1       1       6   My_Variables
+     toff                                       502       1       1       6   My_Variables
+     toffmem                                    503       1       1       2   My_Variables
+     tonmem                                     504       1       1       2   My_Variables
+     main                                      C000       0       0       0   .init       
+     _Startup                                  C000       0       0       0   .init       
+     Entry                                     C000      20      32       0   .init       
+     reset                                     C020       3       3       0   .init       
+     loop1                                     C023      21      33       0   .init       
+     delay                                     C044       7       7       0   .init       
+     Looking                                   C04B       3       3       1   .init       
+     loop                                      C04E       F      15       0   .init       
+     nope                                      C05D       3       3       0   .init       
+     Go                                        C060      1A      26       0   .init       
+     check1                                    C07A       3       3       0   .init       
+     reel                                      C07D       6       6       0   .init       
+     done                                      C083      11      17       0   .init       
+     comp                                      C094       6       6       0   .init       
+     sets                                      C09A       6       6       0   .init       
+     back2                                     C0A0       9       9       0   .init       
+     clears                                    C0A9       9       9       0   .init       
+     back                                      C0B2       6       6       0   .init       
+     delay2                                    C0B8       3       3       0   .init       
+     actual                                    C0BB       5       5       0   .init       
+     delay3                                    C0C0       3       3       0   .init       
+     reall                                     C0C3       5       5       0   .init       
+     Scans                                     C0C8       4       4       1   My_Constants
+     LTable                                    C0CC      10      16       1   My_Constants
+     InTable                                   C0DC      10      16       1   My_Constants
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK 
+loop1                     USES Scans Looking 
+loop                      USES LTable 
+Go                        USES InTable ton tonmem toff toffmem 
+check1                    USES ton 
+done                      USES tonmem ton toffmem toff 
+back2                     USES ton 
+clears                    USES toff 
+back                      USES toff 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 238
+
