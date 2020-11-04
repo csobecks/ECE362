@@ -1,0 +1,20 @@
+   XDEF  ledstart
+   XREF  __SEG_END_SSTACK, ports, shouldtheybeon
+ledstart:   
+Constants:    Section  
+Sequence:    dc.b    $80, $40, $20, $10, $08, $04, $02, $01, $02, $04, $08, $10, $20, $40   ;sequence for the led
+  
+Code:        Section  
+		ldaa shouldtheybeon
+		cmpa #1
+		beq  shouldbeoff  
+		Ldaa   Sequence,X        ;load value from sequence to accumulator a  
+        	Staa   ports        ;store value of A to port s LEDs  
+        	cpx    #$D            ;check to see reg x has run through the sequence 
+        	beq    xtozero        ;if x is finished, restart the scan for which sequence 
+        	INX
+        	bra	shouldbeoff                 ;increase x if not finished with sequence 
+xtozero:	ldx	#0 
+shouldbeoff:
+		RTI       
+          	

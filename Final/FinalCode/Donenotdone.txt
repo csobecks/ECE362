@@ -1,0 +1,17 @@
+Done:
+Keypad
+LCD
+LEDs
+Potentiometer
+
+
+
+
+Not Done:
+Stepper Motor
+DC Motor
+Pushbutton
+Switches (switch 7 turns on battery)
+
+
+IRQ Button- Lab 7 pg.6-7
